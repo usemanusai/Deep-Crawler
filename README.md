@@ -1,4 +1,4 @@
-# DeepCrawler - Authenticated API Endpoint Discovery Tool
+# JAEGIS - Deep-Crawler: Authenticated API Endpoint Discovery Tool
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
@@ -346,8 +346,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Original project: [hyperbrowser-app-examples](https://github.com/hyperbrowserai/hyperbrowser-app-examples)
-- Enhanced and maintained by: [usemanusai](https://github.com/usemanusai)
+- Maintained by: [usemanusai](https://github.com/usemanusai)
 - Built with [Next.js](https://nextjs.org/), [React](https://react.dev/), and [TypeScript](https://www.typescriptlang.org/)
 
 ## Support
