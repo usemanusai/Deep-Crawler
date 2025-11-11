@@ -1,0 +1,57 @@
+{
+  "testRun": {
+    "timestamp": "2025-11-08T22:47:10.366Z",
+    "targetUrl": "https://miniapps.ai",
+    "status": "FAIL",
+    "duration": 212.197,
+    "retryCount": 4
+  },
+  "results": {
+    "endpointsCaptured": 0,
+    "expectedMinimum": 84,
+    "meetsThreshold": false,
+    "protocolBreakdown": {}
+  },
+  "verification": {
+    "endpointCount": "PENDING",
+    "protocolBreakdown": "PENDING",
+    "navigation": "PENDING",
+    "errorFree": "PENDING",
+    "extensionInit": "PENDING"
+  },
+  "diagnostics": {
+    "extensionConnected": false,
+    "navigatedToTarget": false,
+    "sseConnectionStatus": "unknown",
+    "consoleErrors": [],
+    "terminalErrors": [],
+    "errors": [
+      {
+        "retry": 0,
+        "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3002/\", waiting until \"networkidle\"\u001b[22m\n",
+        "timestamp": "2025-11-08T22:47:43.811Z"
+      },
+      {
+        "retry": 1,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T22:48:41.265Z"
+      },
+      {
+        "retry": 2,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T22:49:43.649Z"
+      },
+      {
+        "retry": 3,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T22:50:37.902Z"
+      }
+    ]
+  },
+  "screenshots": [],
+  "logs": {
+    "terminal": "",
+    "browserConsole": "",
+    "extensionConsole": ""
+  }
+}

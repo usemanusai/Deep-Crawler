@@ -1,0 +1,92 @@
+{
+  "testSuites": {
+    "miniapps": {
+      "name": "miniapps.ai Test Suite",
+      "description": "Test crawling miniapps.ai for hidden API endpoints",
+      "targetUrl": "https://miniapps.ai",
+      "expectedMinEndpoints": 84,
+      "crawlMode": "manual",
+      "inactivityTimeout": 60,
+      "crawlTimeout": 120,
+      "sameOriginOnly": true
+    },
+    "example": {
+      "name": "example.com Test Suite",
+      "description": "Test crawling example.com",
+      "targetUrl": "https://example.com",
+      "expectedMinEndpoints": 10,
+      "crawlMode": "manual",
+      "inactivityTimeout": 60,
+      "crawlTimeout": 120,
+      "sameOriginOnly": true
+    }
+  },
+  "globalConfig": {
+    "extensionId": "hegjkinbjlahdpfoglnbilcoofjmfdpp",
+    "extensionPath": "./extension",
+    "backendUrl": "http://localhost:3002",
+    "outputDir": "./test-results",
+    "verbose": false,
+    "headless": false,
+    "maxRetries": 3,
+    "retryDelay": 5,
+    "extensionConnectionTimeout": 10,
+    "monitoringInterval": 5,
+    "screenshotOnCompletion": true,
+    "captureConsoleLogs": true,
+    "referenceFile": "C:\\Users\\Lenovo ThinkPad T480\\Desktop\\API-miniapps.ai\\deepcrawler-deepcrawler---miniapps.ai.json"
+  },
+  "failureDetection": {
+    "extensionConnectionFailure": {
+      "enabled": true,
+      "timeout": 10,
+      "maxRetries": 3,
+      "description": "Detects when extension fails to connect to backend"
+    },
+    "zeroEndpointsCapture": {
+      "enabled": true,
+      "threshold": 30,
+      "description": "Detects when no endpoints are captured after 30 seconds"
+    },
+    "sseConnectionFailure": {
+      "enabled": true,
+      "description": "Detects SSE connection failures (non-fatal if polling activates)"
+    },
+    "extensionNotNavigating": {
+      "enabled": true,
+      "timeout": 5,
+      "description": "Detects when extension doesn't navigate to target URL"
+    },
+    "pollingErrors": {
+      "enabled": true,
+      "errorPattern": "404",
+      "description": "Detects repeated 404 errors in polling"
+    },
+    "insufficientEndpoints": {
+      "enabled": true,
+      "description": "Detects when endpoint count is below expected minimum"
+    }
+  },
+  "reporting": {
+    "generateJsonReport": true,
+    "generateHumanReport": true,
+    "generateScreenshots": true,
+    "captureBrowserConsole": true,
+    "captureTerminalLogs": true,
+    "captureExtensionLogs": true,
+    "reportFormat": "both",
+    "outputDirectory": "./test-results"
+  },
+  "monitoring": {
+    "checkInterval": 5,
+    "logLevel": "info",
+    "captureMetrics": true,
+    "metricsToCapture": [
+      "endpointCount",
+      "elapsedTime",
+      "memoryUsage",
+      "cpuUsage"
+    ]
+  }
+}
+

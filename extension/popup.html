@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepCrawler Session Bridge</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>DeepCrawler</h1>
+      <p class="subtitle">Session Bridge</p>
+    </div>
+
+    <div class="status-section">
+      <div class="status-indicator" id="statusIndicator">
+        <div class="status-dot disconnected"></div>
+        <span id="statusText">Disconnected</span>
+      </div>
+      <p class="status-message" id="statusMessage">Connecting to backend...</p>
+    </div>
+
+    <div class="info-section">
+      <h3>Connection Info</h3>
+      <div class="info-item">
+        <label>Backend URL:</label>
+        <span id="backendUrl">http://localhost:3002</span>
+      </div>
+      <div class="info-item">
+        <label>Extension Version:</label>
+        <span>1.0.0</span>
+      </div>
+      <div class="info-item">
+        <label>Current Tab:</label>
+        <span id="currentTab">Loading...</span>
+      </div>
+    </div>
+
+    <div class="actions-section">
+      <button id="openSettingsBtn" class="btn btn-primary">
+        ⚙️ Settings
+      </button>
+      <button id="testConnectionBtn" class="btn btn-secondary">
+        🔄 Test Connection
+      </button>
+    </div>
+
+    <div class="logs-section">
+      <h3>Recent Activity</h3>
+      <div class="logs-container" id="logsContainer">
+        <p class="log-entry">Extension initialized</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Powered by <a href="https://hyperbrowser.ai" target="_blank">Hyperbrowser</a></p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

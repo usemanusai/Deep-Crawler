@@ -1,0 +1,57 @@
+{
+  "testRun": {
+    "timestamp": "2025-11-08T22:40:13.160Z",
+    "targetUrl": "https://miniapps.ai",
+    "status": "FAIL",
+    "duration": 39.02,
+    "retryCount": 4
+  },
+  "results": {
+    "endpointsCaptured": 0,
+    "expectedMinimum": 84,
+    "meetsThreshold": false,
+    "protocolBreakdown": {}
+  },
+  "verification": {
+    "endpointCount": "PENDING",
+    "protocolBreakdown": "PENDING",
+    "navigation": "PENDING",
+    "errorFree": "PENDING",
+    "extensionInit": "PENDING"
+  },
+  "diagnostics": {
+    "extensionConnected": false,
+    "navigatedToTarget": false,
+    "sseConnectionStatus": "unknown",
+    "consoleErrors": [],
+    "terminalErrors": [],
+    "errors": [
+      {
+        "retry": 0,
+        "error": "browser.contexts is not a function",
+        "timestamp": "2025-11-08T22:40:17.501Z"
+      },
+      {
+        "retry": 1,
+        "error": "browser.contexts is not a function",
+        "timestamp": "2025-11-08T22:40:26.839Z"
+      },
+      {
+        "retry": 2,
+        "error": "browser.contexts is not a function",
+        "timestamp": "2025-11-08T22:40:38.079Z"
+      },
+      {
+        "retry": 3,
+        "error": "browser.contexts is not a function",
+        "timestamp": "2025-11-08T22:40:48.175Z"
+      }
+    ]
+  },
+  "screenshots": [],
+  "logs": {
+    "terminal": "",
+    "browserConsole": "",
+    "extensionConsole": ""
+  }
+}

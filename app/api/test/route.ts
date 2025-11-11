@@ -1,0 +1,232 @@
+export async function GET() {
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .endpoint {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test API Page for DeepCrawler Extension</h1>
+    
+    <div class="section">
+        <h2>API Endpoints</h2>
+        <p>This page makes various API calls that the DeepCrawler extension should capture.</p>
+        
+        <button onclick="testGetRequest()">Test GET Request</button>
+        <button onclick="testPostRequest()">Test POST Request</button>
+        <button onclick="testPutRequest()">Test PUT Request</button>
+        <button onclick="testDeleteRequest()">Test DELETE Request</button>
+        <button onclick="testMultipleRequests()">Test Multiple Requests</button>
+        <button onclick="testXHR()">Test XHR Request</button>
+        <button onclick="clearResults()">Clear Results</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Captured Endpoints</h2>
+        <p>The extension should capture these endpoints:</p>
+        <div class="endpoint">GET /api/test/users</div>
+        <div class="endpoint">POST /api/test/users</div>
+        <div class="endpoint">PUT /api/test/users/1</div>
+        <div class="endpoint">DELETE /api/test/users/1</div>
+        <div class="endpoint">GET /api/test/posts</div>
+        <div class="endpoint">GET /api/test/comments</div>
+    </div>
+
+    <script>
+        function addResult(message) {
+            const resultsDiv = document.getElementById('results');
+            const resultElement = document.createElement('div');
+            resultElement.className = 'result';
+            resultElement.textContent = \`[\${new Date().toLocaleTimeString()}] \${message}\`;
+            resultsDiv.appendChild(resultElement);
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testGetRequest() {
+            try {
+                addResult('Sending GET request to /api/test/users...');
+                const response = await fetch('/api/test/users');
+                const data = await response.json();
+                addResult(\`✓ GET /api/test/users - Status: \${response.status}\`);
+            } catch (error) {
+                addResult(\`✗ GET request failed: \${error.message}\`);
+            }
+        }
+
+        async function testPostRequest() {
+            try {
+                addResult('Sending POST request to /api/test/users...');
+                const response = await fetch('/api/test/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: 'Test User' })
+                });
+                addResult(\`✓ POST /api/test/users - Status: \${response.status}\`);
+            } catch (error) {
+                addResult(\`✗ POST request failed: \${error.message}\`);
+            }
+        }
+
+        async function testPutRequest() {
+            try {
+                addResult('Sending PUT request to /api/test/users/1...');
+                const response = await fetch('/api/test/users/1', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: 'Updated User' })
+                });
+                addResult(\`✓ PUT /api/test/users/1 - Status: \${response.status}\`);
+            } catch (error) {
+                addResult(\`✗ PUT request failed: \${error.message}\`);
+            }
+        }
+
+        async function testDeleteRequest() {
+            try {
+                addResult('Sending DELETE request to /api/test/users/1...');
+                const response = await fetch('/api/test/users/1', { method: 'DELETE' });
+                addResult(\`✓ DELETE /api/test/users/1 - Status: \${response.status}\`);
+            } catch (error) {
+                addResult(\`✗ DELETE request failed: \${error.message}\`);
+            }
+        }
+
+        async function testMultipleRequests() {
+            addResult('Sending multiple requests...');
+            await testGetRequest();
+            await new Promise(r => setTimeout(r, 500));
+            await fetch('/api/test/posts').catch(e => addResult(\`Posts request: \${e.message}\`));
+            await new Promise(r => setTimeout(r, 500));
+            await fetch('/api/test/comments').catch(e => addResult(\`Comments request: \${e.message}\`));
+            addResult('✓ Multiple requests completed');
+        }
+
+        function testXHR() {
+            addResult('Sending XHR request to /api/test/users...');
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/api/test/users', true);
+            xhr.onload = function() {
+                addResult(\`✓ XHR GET /api/test/users - Status: \${xhr.status}\`);
+            };
+            xhr.onerror = function() {
+                addResult(\`✗ XHR request failed\`);
+            };
+            xhr.send();
+        }
+
+        // Auto-test on page load
+        window.addEventListener('load', function() {
+            addResult('✓ Test page loaded');
+            addResult('Click buttons above to make API requests');
+            addResult('The extension should capture all requests');
+
+            // Automatically make test requests after a short delay
+            setTimeout(async function() {
+                addResult('🤖 Auto-testing API endpoints...');
+
+                try {
+                    // Test GET
+                    await fetch('/api/test/users').catch(e => addResult(\`GET /api/test/users failed: \${e.message}\`));
+                    await new Promise(r => setTimeout(r, 100));
+
+                    // Test POST
+                    await fetch('/api/test/users', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: 'Auto Test' })
+                    }).catch(e => addResult(\`POST /api/test/users failed: \${e.message}\`));
+                    await new Promise(r => setTimeout(r, 100));
+
+                    // Test PUT
+                    await fetch('/api/test/users/1', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: 'Auto Updated' })
+                    }).catch(e => addResult(\`PUT /api/test/users/1 failed: \${e.message}\`));
+                    await new Promise(r => setTimeout(r, 100));
+
+                    // Test DELETE
+                    await fetch('/api/test/users/1', { method: 'DELETE' }).catch(e => addResult(\`DELETE /api/test/users/1 failed: \${e.message}\`));
+                    await new Promise(r => setTimeout(r, 100));
+
+                    // Test GET posts
+                    await fetch('/api/test/posts').catch(e => addResult(\`GET /api/test/posts failed: \${e.message}\`));
+                    await new Promise(r => setTimeout(r, 100));
+
+                    // Test GET comments
+                    await fetch('/api/test/comments').catch(e => addResult(\`GET /api/test/comments failed: \${e.message}\`));
+
+                    addResult('✓ Auto-testing completed');
+                } catch (error) {
+                    addResult(\`Auto-test error: \${error.message}\`);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>`;
+
+  return new Response(html, {
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Security-Policy': "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules' http://localhost:* http://127.0.0.1:* chrome-extension://*; connect-src 'self' http://localhost:* http://127.0.0.1:* ws://localhost:* ws://127.0.0.1:*",
+    },
+  });
+}
+

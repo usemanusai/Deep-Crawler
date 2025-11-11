@@ -1,0 +1,81 @@
+{
+  "description": "DeepCrawler Test Cases - Multiple URL Testing Suite",
+  "testCases": [
+    {
+      "id": "miniapps-primary",
+      "name": "miniapps.ai - Primary Test",
+      "description": "Main test case for miniapps.ai endpoint discovery",
+      "targetUrl": "https://miniapps.ai",
+      "expectedMinEndpoints": 84,
+      "crawlMode": "manual",
+      "inactivityTimeout": 60,
+      "crawlTimeout": 120,
+      "sameOriginOnly": true,
+      "priority": "high",
+      "enabled": true
+    },
+    {
+      "id": "miniapps-auto",
+      "name": "miniapps.ai - Auto Mode",
+      "description": "Test miniapps.ai in auto crawl mode",
+      "targetUrl": "https://miniapps.ai",
+      "expectedMinEndpoints": 84,
+      "crawlMode": "auto",
+      "inactivityTimeout": 60,
+      "crawlTimeout": 180,
+      "sameOriginOnly": true,
+      "priority": "medium",
+      "enabled": false
+    },
+    {
+      "id": "example-basic",
+      "name": "example.com - Basic Test",
+      "description": "Test basic endpoint discovery on example.com",
+      "targetUrl": "https://example.com",
+      "expectedMinEndpoints": 5,
+      "crawlMode": "manual",
+      "inactivityTimeout": 30,
+      "crawlTimeout": 60,
+      "sameOriginOnly": true,
+      "priority": "low",
+      "enabled": false
+    }
+  ],
+  "suites": {
+    "smoke": {
+      "description": "Quick smoke test",
+      "testCases": ["miniapps-primary"],
+      "timeout": 150,
+      "retries": 1
+    },
+    "full": {
+      "description": "Full test suite",
+      "testCases": ["miniapps-primary", "miniapps-auto", "example-basic"],
+      "timeout": 500,
+      "retries": 2
+    },
+    "regression": {
+      "description": "Regression test suite",
+      "testCases": ["miniapps-primary"],
+      "timeout": 150,
+      "retries": 3
+    }
+  },
+  "globalSettings": {
+    "extensionId": "hegjkinbjlahdpfoglnbilcoofjmfdpp",
+    "extensionPath": "./extension",
+    "backendUrl": "http://localhost:3002",
+    "outputDir": "./test-results",
+    "verbose": false,
+    "headless": false,
+    "maxRetries": 3,
+    "retryDelay": 5,
+    "extensionConnectionTimeout": 10,
+    "monitoringInterval": 5,
+    "screenshotOnCompletion": true,
+    "captureConsoleLogs": true,
+    "generateJsonReport": true,
+    "generateHumanReport": true
+  }
+}
+

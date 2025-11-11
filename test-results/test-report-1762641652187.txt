@@ -1,0 +1,30 @@
+
+========================================
+DeepCrawler Extension Test Report
+========================================
+Test Run: 11/8/2025, 11:40:13 PM
+Target URL: https://miniapps.ai
+Status: ❌ FAIL
+Duration: 39.0 seconds
+Retry Count: 4
+
+Results:
+  Endpoints Captured: 0 / 84 minimum ❌
+
+Verification:
+  Endpoint Count: PENDING
+  Protocol Breakdown: PENDING
+  Navigation: PENDING
+  Error Free: PENDING
+  Extension Init: PENDING
+
+Diagnostics:
+  Extension Connected: ❌
+  Navigated to Target: ❌
+  SSE Connection: unknown
+  Console Errors: 0
+  Terminal Errors: 0
+
+Screenshots: None
+
+========================================

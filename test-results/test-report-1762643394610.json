@@ -1,0 +1,57 @@
+{
+  "testRun": {
+    "timestamp": "2025-11-08T23:04:22.185Z",
+    "targetUrl": "https://miniapps.ai",
+    "status": "FAIL",
+    "duration": 332.381,
+    "retryCount": 4
+  },
+  "results": {
+    "endpointsCaptured": 0,
+    "expectedMinimum": 84,
+    "meetsThreshold": false,
+    "protocolBreakdown": {}
+  },
+  "verification": {
+    "endpointCount": "PENDING",
+    "protocolBreakdown": "PENDING",
+    "navigation": "PENDING",
+    "errorFree": "PENDING",
+    "extensionInit": "PENDING"
+  },
+  "diagnostics": {
+    "extensionConnected": false,
+    "navigatedToTarget": false,
+    "sseConnectionStatus": "unknown",
+    "consoleErrors": [],
+    "terminalErrors": [],
+    "errors": [
+      {
+        "retry": 0,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T23:05:17.108Z"
+      },
+      {
+        "retry": 1,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T23:07:07.604Z"
+      },
+      {
+        "retry": 2,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T23:08:41.284Z"
+      },
+      {
+        "retry": 3,
+        "error": "Extension failed to connect after 10s",
+        "timestamp": "2025-11-08T23:09:51.224Z"
+      }
+    ]
+  },
+  "screenshots": [],
+  "logs": {
+    "terminal": "",
+    "browserConsole": "",
+    "extensionConsole": ""
+  }
+}

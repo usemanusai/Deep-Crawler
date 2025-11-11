@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepCrawler Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>DeepCrawler Settings</h1>
+      <p class="subtitle">Configure extension behavior</p>
+    </div>
+
+    <div class="settings-panel">
+      <div class="section">
+        <h2>Backend Configuration</h2>
+        
+        <div class="setting-group">
+          <label for="backendUrl">Backend URL</label>
+          <input 
+            type="text" 
+            id="backendUrl" 
+            placeholder="http://localhost:3002"
+            class="input-field"
+          >
+          <p class="help-text">The URL where DeepCrawler backend is running</p>
+        </div>
+
+        <div class="setting-group">
+          <label for="extensionKey">Extension API Key</label>
+          <input 
+            type="password" 
+            id="extensionKey" 
+            placeholder="deepcrawler-extension-v1"
+            class="input-field"
+          >
+          <p class="help-text">API key for authenticating with backend</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Crawling Mode</h2>
+        
+        <div class="setting-group">
+          <label>Mode Selection</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="mode" value="auto" checked>
+              <span>Auto (use extension when available, fallback to server)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="extension">
+              <span>Extension Only (fail if extension unavailable)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="server">
+              <span>Server-side Only (always use Hyperbrowser backend)</span>
+            </label>
+          </div>
+          <p class="help-text">Choose how crawling requests are routed</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Advanced Options</h2>
+        
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableLogging" checked>
+            <span>Enable detailed logging</span>
+          </label>
+          <p class="help-text">Log all extension activities to console</p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="captureScreenshots" checked>
+            <span>Capture screenshots during crawl</span>
+          </label>
+          <p class="help-text">Include page screenshots in crawl results</p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="preserveSession" checked>
+            <span>Preserve browser session</span>
+          </label>
+          <p class="help-text">Keep browser tabs open after crawl completes</p>
+        </div>
+
+        <div class="setting-group">
+          <label for="requestTimeout">Request Timeout (seconds)</label>
+          <input 
+            type="number" 
+            id="requestTimeout" 
+            min="5" 
+            max="300" 
+            value="60"
+            class="input-field"
+          >
+          <p class="help-text">Maximum time to wait for crawl requests</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Data Collection</h2>
+        
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="collectCookies" checked>
+            <span>Collect cookies</span>
+          </label>
+          <p class="help-text">Include cookies in session data</p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="collectStorage" checked>
+            <span>Collect localStorage & sessionStorage</span>
+          </label>
+          <p class="help-text">Include browser storage in session data</p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="collectNetworkRequests" checked>
+            <span>Collect network requests</span>
+          </label>
+          <p class="help-text">Include network activity in results</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>About</h2>
+        <div class="about-info">
+          <p><strong>Extension Version:</strong> 1.0.0</p>
+          <p><strong>Manifest Version:</strong> 3</p>
+          <p><strong>Documentation:</strong> <a href="https://docs.hyperbrowser.ai" target="_blank">docs.hyperbrowser.ai</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn btn-primary">💾 Save Settings</button>
+      <button id="resetBtn" class="btn btn-secondary">↺ Reset to Defaults</button>
+    </div>
+
+    <div class="status-message" id="statusMessage"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
+

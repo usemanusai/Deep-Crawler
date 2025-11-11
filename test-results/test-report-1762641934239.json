@@ -1,0 +1,57 @@
+{
+  "testRun": {
+    "timestamp": "2025-11-08T22:44:27.308Z",
+    "targetUrl": "https://miniapps.ai",
+    "status": "FAIL",
+    "duration": 66.931,
+    "retryCount": 4
+  },
+  "results": {
+    "endpointsCaptured": 0,
+    "expectedMinimum": 84,
+    "meetsThreshold": false,
+    "protocolBreakdown": {}
+  },
+  "verification": {
+    "endpointCount": "PENDING",
+    "protocolBreakdown": "PENDING",
+    "navigation": "PENDING",
+    "errorFree": "PENDING",
+    "extensionInit": "PENDING"
+  },
+  "diagnostics": {
+    "extensionConnected": false,
+    "navigatedToTarget": false,
+    "sseConnectionStatus": "unknown",
+    "consoleErrors": [],
+    "terminalErrors": [],
+    "errors": [
+      {
+        "retry": 0,
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3002/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3002/\", waiting until \"networkidle\"\u001b[22m\n",
+        "timestamp": "2025-11-08T22:44:32.863Z"
+      },
+      {
+        "retry": 1,
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3002/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3002/\", waiting until \"networkidle\"\u001b[22m\n",
+        "timestamp": "2025-11-08T22:44:55.507Z"
+      },
+      {
+        "retry": 2,
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3002/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3002/\", waiting until \"networkidle\"\u001b[22m\n",
+        "timestamp": "2025-11-08T22:45:14.359Z"
+      },
+      {
+        "retry": 3,
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3002/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3002/\", waiting until \"networkidle\"\u001b[22m\n",
+        "timestamp": "2025-11-08T22:45:30.637Z"
+      }
+    ]
+  },
+  "screenshots": [],
+  "logs": {
+    "terminal": "",
+    "browserConsole": "",
+    "extensionConsole": ""
+  }
+}

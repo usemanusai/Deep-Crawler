@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "DeepCrawler Session Bridge",
+  "version": "1.0.0",
+  "description": "Bridge your authenticated browser sessions with DeepCrawler for seamless API discovery",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "storage",
+    "cookies",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:3002/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["network-interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DeepCrawler Session Bridge"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["network-interceptor.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
