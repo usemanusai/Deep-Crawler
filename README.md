@@ -118,10 +118,11 @@ graph TB
 - Chrome browser (for extension)
 - Git
 
-### Step 1: Clone the Repository
+### Step 1: Star & Clone the Repository
+Star the repository!
 ```bash
-git clone https://github.com/usemanusai/hyperbrowser-app-examples.git
-cd hyperbrowser-app-examples/deep-crawler-bot
+git clone https://github.com/usemanusai/Deep-Crawler.git
+cd Deep-Crawler-main/Deep-Crawler-main
 ```
 
 ### Step 2: Install Dependencies
